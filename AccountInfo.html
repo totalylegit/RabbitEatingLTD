@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <title>Account - Carrot Cafe</title>
     <link rel="stylesheet" href="styles.css">
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -50,49 +47,6 @@
         .home-btn:hover {
             background: #ff7f50;
         }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropbtn {
-            background: #ffa07a;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            font-size: 1em;
-            color: #fff;
-            font-weight: bold;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #fff8dc;
-            min-width: 160px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            z-index: 1;
-            border-radius: 6px;
-            overflow: hidden;
-            left: 0;
-        }
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: background 0.2s;
-        }
-        .dropdown-content a:hover {
-            background: #ffe4b5;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown:hover .dropbtn {
-            background: #ff7f50;
-        }
         main {
             padding: 32px;
         }
@@ -101,6 +55,26 @@
             padding: 16px;
             background: #f4a460;
             color: #fff;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .action-btn {
             background: #ffa07a;
@@ -113,68 +87,58 @@
             text-decoration: none;
             font-weight: bold;
             transition: background 0.2s;
-            display: inline-block;
-            margin-top: 10px;
+            display: block;
+            margin: 10px auto;
         }
         .action-btn:hover {
             background: #ff7f50;
         }
     </style>
 </head>
-
 <body>
-<div class="top-bar">
+    <div class="top-bar">
         <div class="top-bar-left">
-            <div class="dropdown">
-            <button class="dropbtn" aria-label="Open menu">
-                Menu
-            </button>
-            <div class="dropdown-content">
-                <a href="#menu">Menu</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
-                </div>
-            </div>
             <div class="brand-box">Carrot Cafe By RabbitEatingLTD</div>
         </div>
         <a href="index.html" class="home-btn">Home</a>
     </div>
-</body>
 
-<main>
-    <h1>Welcome to Carrot Cafe!</h1>
-    <p>
-        Please Log in or Sign Up to access your account information.
-    </p>
-    <section>
-        <form id="loginForm"></form>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            <button type="submit" class="action-btn">Log In</button>
-        </form>
-    </section>
-   
-    <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        fetch('/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                username: document.getElementById('username').value,
-                password: document.getElementById('password').value
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                alert('Login successful!');
-            } else {
-                alert('Login failed!');
-            }
-        });
-    });
-    </script>
-</main>
+    <main>
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="action-btn">Sign Up</button>
+            </form>
+
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="action-btn">Login</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 Carrot Cafe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
