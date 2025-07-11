@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <title>Carrot Cafe By RabbitEatingLTD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
     <link rel="stylesheet" href="styles.css">
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -116,10 +119,11 @@
         .action-btn:hover {
             background: #ff7f50;
         }
-        </style>
-    </head>
-    <body>
-        <div class="top-bar">
+    </style>
+</head>
+
+<body>
+<div class="top-bar">
         <div class="top-bar-left">
             <div class="dropdown">
             <button class="dropbtn" aria-label="Open menu">
@@ -135,45 +139,42 @@
         </div>
         <a href="index.html" class="home-btn">Home</a>
     </div>
-    </body>
-
- <main>
-        <section id="menu">
-            <h2>Our Menu</h2>
-            <p>Explore our delicious offerings!</p>
-        </section>
-
-        <section id="sign/log">
-            <h2>Sign Up or Log In</h2>
-            <p>
-                Sign up for our innovative, efficient and affordable menu delivered to a campus near you!
-                If you already have an account, log in to access your profile and order history.
-            </p>
-            <a href="accountinfo.html" class="action-btn">Sign Up</a>
-            <a href="accountinfo.html" class="action-btn">Login</a>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Learn more about our story and mission.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us for any inquiries.</p>
-        </section>
-
-        <section id = "Volunteer or Donate">
-            <h2>Volunteer or Donate</h2>
-            <p>Join our community efforts or support us with a donation.</p>
-            <a href="volunteer.html" class="action-btn">Volunteer</a>
-            <a href="donate.html" class="action-btn">Donate</a>
-
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2023 Carrot Cafe. All rights reserved.</p>
-    </footer>
 </body>
-</html>
+
+<main>
+    <h1>Welcome to Carrot Cafe!</h1>
+    <p>
+        Please Log in or Sign Up to access your account information.
+    </p>
+    <section>
+        <form id="loginForm"></form>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit" class="action-btn">Log In</button>
+        </form>
+    </section>
+   
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert('Login successful!');
+            } else {
+                alert('Login failed!');
+            }
+        });
+    });
+    </script>
+</main>
