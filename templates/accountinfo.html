@@ -105,13 +105,10 @@
 
     <main>
         <div class="form-container">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="flash-message {{ category }}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+            <!-- Flash messages placeholder -->
+            <div class="flash-message info">Welcome! Please sign up or log in.</div>
+            <div class="flash-message error" style="display:none;">Invalid credentials. Please try again.</div>
+            <div class="flash-message success" style="display:none;">Account created successfully!</div>
             
             <h2>Sign Up</h2>
             <form method="POST">

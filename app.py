@@ -7,6 +7,8 @@ from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
+app.static_folder = 'static'
+app.template_folder = 'templates'
 app.secret_key = os.urandom(24).hex()
 
 bcrypt = Bcrypt(app)
