@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="icon" href="../static/Sticker.png" type="image/png">
+    
+<main>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="brand-box">Carrot Cafe By RabbitEatingLTD</div>
+        </div>
+        <a href="../templates/index.html" class="home-btn">Home</a>
+    </div>
+    <main>
+        <section class="forums-section">
+            <h2>Forums</h2>
+            <p>Join the discussion and share your thoughts!</p>
+            <!-- Forum content goes here -->
+        </section>
+        <section class="topics-section">
+            <h2>Topics</h2>
+            <p>Explore various topics and engage with the community.</p>
+            <!-- Topics content goes here -->
+        </section>
+        <section class="community-section">
+            <h2>Community Discussions</h2>
+            <p>Participate in community discussions and connect with others.</p>
+            <!-- Community discussions content goes here -->
+        </section>
+        <section class="create-post-section">
+            <h2>Create a Post</h2>
+            <form method="POST" action="/create-post">
+                <label for="title">Post Title:</label>
+                <input type="text" id="title" name="title" required>
+                
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+                
+                <button type="submit" class="action-btn">Submit Post</button>
+            </form>
+        </section>
+</main>

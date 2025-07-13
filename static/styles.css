@@ -107,3 +107,6 @@ footer {
 .action-btn:hover {
     background: #ff7f50;
 }
+html {
+    scroll-behavior: smooth;
+}
