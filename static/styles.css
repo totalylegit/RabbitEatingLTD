@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
-.top-bar {
+.top-bar{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,7 +10,7 @@ body {
     padding: 16px 32px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-.top-bar-left {
+.top-bar-left{
     display: flex;
     align-items: center;
 }

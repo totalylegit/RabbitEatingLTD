@@ -35,6 +35,13 @@ def hash_password(password):
 @app.route('/')
 def index():
     return render_template('index.html')
+@app.route('/volunteer')
+def volunteer():
+    return render_template('volunteer.html')
+
+@app.route('/donate')
+def donate():
+    return render_template('donate.html')
 
 # Route for account info (sign-up and login)
 @app.route('/accountinfo', methods=['GET', 'POST'])
