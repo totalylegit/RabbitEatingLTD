@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f4a460;
+    padding: 16px 32px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.top-bar-left {
+    display: flex;
+    align-items: center;
+}
+.brand-box {
+    background: #fff8dc;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    margin-left: 32px;
+}
+.home-btn {
+    background: #ffa07a;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.home-btn:hover {
+    background: #ff7f50;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropbtn {
+    background: #ffa07a;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #fff;
+    font-weight: bold;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #fff8dc;
+    min-width: 160px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    left: 0;
+}
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s;
+}
+.dropdown-content a:hover {
+    background: #ffe4b5;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    background: #ff7f50;
+}
+main {
+    padding: 32px;
+}
+footer {
+    text-align: center;
+    padding: 16px;
+    background: #f4a460;
+    color: #fff;
+}
+.action-btn {
+    background: #ffa07a;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+    display: inline-block;
+    margin-top: 10px;
+}
+.action-btn:hover {
+    background: #ff7f50;
+}

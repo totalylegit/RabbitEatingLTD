@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import sqlite3
 import hashlib
+import os
+import re
+from flask_bcrypt import Bcrypt
+
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Change this to a secure random string
+app.secret_key = os.urandom(24).hex()
+
+bcrypt = Bcrypt(app)
+
+def hash_password(password):
+    return bcrypt.generate_password_hash(password).decode('utf-8')
 
 # Initialize SQLite database
 def init_db():
@@ -55,6 +64,10 @@ def accountinfo():
             email = request.form['login-email']
             password = request.form['login-password']
             
+            if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+                flash('Invalid email format.', 'error')
+                return redirect(url_for('accountinfo')) 
+
             conn = sqlite3.connect('database.db')
             c = conn.cursor()
             c.execute("SELECT * FROM users WHERE email = ? AND password = ?",
@@ -62,12 +75,13 @@ def accountinfo():
             user = c.fetchone()
             conn.close()
             
-            if user:
+            if user and bcrypt.check_password_hash(user[3], password):
                 session['user_id'] = user[0]
                 flash('Login successful!', 'success')
                 return redirect(url_for('index'))
             else:
                 flash('Invalid email or password.', 'error')
+                return redirect(url_for('accountinfo')) 
 
     return render_template('accountinfo.html')
 
