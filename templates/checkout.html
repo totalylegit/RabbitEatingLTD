@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="icon" href="../static/Sticker.png" type="image/png">
+</head>
+
+<main>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="brand-box">Carrot Cafe By RabbitEatingLTD</div>
+        </div>
+        <a href="../templates/index.html" class="home-btn">Home</a>
+    </div>
+    
+    <main>
+        <section class="checkout-section">
+            <h2>Checkout</h2>
+            <p>Review your order and proceed to payment.</p>
+            <form id="meal-form" action="../templates/checkout.html" method="GET">
+                <table class="meal-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Breakfast</th>
+                            <th>Lunch</th>
+                            <th>Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td><input type="checkbox" name="monday_breakfast"></td>
+                            <td><input type="checkbox" name="monday_lunch"></td>
+                            <td><input type="checkbox" name="monday_dinner"></td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td><input type="checkbox" name="tuesday_breakfast"></td>
+                            <td><input type="checkbox" name="tuesday_lunch"></td>
+                            <td><input type="checkbox" name="tuesday_dinner"></td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td><input type="checkbox" name="wednesday_breakfast"></td>
+                            <td><input type="checkbox" name="wednesday_lunch"></td>
+                            <td><input type="checkbox" name="wednesday_dinner"></td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td><input type="checkbox" name="thursday_breakfast"></td>
+                            <td><input type="checkbox" name="thursday_lunch"></td>
+                            <td><input type="checkbox" name="thursday_dinner"></td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td><input type="checkbox" name="friday_breakfast"></td>
+                            <td><input type="checkbox" name="friday_lunch"></td>
+                            <td><input type="checkbox" name="friday_dinner"></td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td><input type="checkbox" name="saturday_breakfast"></td>
+                            <td><input type="checkbox" name="saturday_lunch"></td>
+                            <td><input type="checkbox" name="saturday_dinner"></td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td><input type="checkbox" name="sunday_breakfast"></td>
+                            <td><input type="checkbox" name="sunday_lunch"></td>
+                            <td><input type="checkbox" name="sunday_dinner"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="submit">Save Selections</button>
+            </form>
+        </section>
+    </main>
+</main>

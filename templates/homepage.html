@@ -52,10 +52,99 @@
 
         </section>
 
-        <section class="social-media-section">
-            <h2>Follow Us on Social Media</h2>
-            <p>Stay updated with our latest news and offerings by following us on social media!</p>
-            <a href="https://www.instagram.com" class="action-btn">Instagram</a>
+        <form id="checkout-form" action="../templates/checkout.html" method="GET">
+            <section class="checkout-section">
+                <h2 style="font-size: 2.5em;">Checkout</h2>
+                <p style="font-size: 2em;">Ready to order? Select your meals for each day of the week.</p>
+                <table class="meal-grid" style="font-size: 2em;">
+                <thead>
+                    <tr>
+                    <th>Day</th>
+                    <th>Breakfast</th>
+                    <th>Lunch</th>
+                    <th>Dinner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Monday</td>
+                    <td><input type="checkbox" name="monday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="monday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="monday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                    <tr>
+                    <td>Tuesday</td>
+                    <td><input type="checkbox" name="tuesday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="tuesday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="tuesday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                    <tr>
+                    <td>Wednesday</td>
+                    <td><input type="checkbox" name="wednesday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="wednesday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="wednesday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                    <tr>
+                    <td>Thursday</td>
+                    <td><input type="checkbox" name="thursday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="thursday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="thursday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                    <tr>
+                    <td>Friday</td>
+                    <td><input type="checkbox" name="friday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="friday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="friday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                    <tr>
+                    <td>Saturday</td>
+                    <td><input type="checkbox" name="saturday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="saturday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="saturday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                    <tr>
+                    <td>Sunday</td>
+                    <td><input type="checkbox" name="sunday_breakfast" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="sunday_lunch" value="1" style="width: 60px; height: 60px;"></td>
+                    <td><input type="checkbox" name="sunday_dinner" value="1" style="width: 60px; height: 60px;"></td>
+                    </tr>
+                </tbody>
+                </table>
+                <button type="submit" class="action-btn" style="font-size: 2em;">Go to Checkout</button>
+            </section>
+            <script>
+                // Load saved checkboxes from localStorage
+                document.addEventListener('DOMContentLoaded', function() {
+                    const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+                    const meals = ['breakfast','lunch','dinner'];
+                    days.forEach(day => {
+                        meals.forEach(meal => {
+                            const key = `${day}_${meal}`;
+                            const checkbox = document.querySelector(`input[name="${key}"]`);
+                            if (checkbox && localStorage.getItem(key) === 'true') {
+                                checkbox.checked = true;
+                            }
+                        });
+                    });
+                });
+
+                // Save checkboxes to localStorage on submit
+                document.getElementById('meal-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+                    const meals = ['breakfast','lunch','dinner'];
+                    days.forEach(day => {
+                        meals.forEach(meal => {
+                            const key = `${day}_${meal}`;
+                            const checkbox = document.querySelector(`input[name="${key}"]`);
+                            localStorage.setItem(key, checkbox.checked);
+                        });
+                    });
+                    alert('Selections saved!');
+                });
+            </script>
+        </form>
+
         </section>
 </main>
 
