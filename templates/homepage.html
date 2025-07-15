@@ -52,7 +52,7 @@
 
         </section>
 
-        <form id="checkout-form" action="../templates/checkout.html" method="GET">
+        <form id="meal-form" action="../templates/checkout.html" method="GET">
             <section class="checkout-section">
                 <h2 style="font-size: 2.5em;">Checkout</h2>
                 <p style="font-size: 2em;">Ready to order? Select your meals for each day of the week.</p>
@@ -110,24 +110,10 @@
                     </tr>
                 </tbody>
                 </table>
-                <button type="submit" class="action-btn" style="font-size: 2em;">Go to Checkout</button>
+                <button type="submit" class="action-btn" style="font-size: 2em;">Save Selections</button>
+                <a href="../templates/checkout.html" class="action-btn" style="font-size: 2em; display: inline-block; margin-top: 20px;">Go to Checkout</a>
             </section>
             <script>
-                // Load saved checkboxes from localStorage
-                document.addEventListener('DOMContentLoaded', function() {
-                    const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
-                    const meals = ['breakfast','lunch','dinner'];
-                    days.forEach(day => {
-                        meals.forEach(meal => {
-                            const key = `${day}_${meal}`;
-                            const checkbox = document.querySelector(`input[name="${key}"]`);
-                            if (checkbox && localStorage.getItem(key) === 'true') {
-                                checkbox.checked = true;
-                            }
-                        });
-                    });
-                });
-
                 // Save checkboxes to localStorage on submit
                 document.getElementById('meal-form').addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -144,7 +130,6 @@
                 });
             </script>
         </form>
-
         </section>
 </main>
 
