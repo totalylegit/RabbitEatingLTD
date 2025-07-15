@@ -6,6 +6,7 @@
     <title>My Web Page</title>
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="icon" href="../static/Sticker.png" type="image/png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 <main>
@@ -74,9 +75,22 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="location-section">
+                <h3>Select Delivery Location</h3>
+                <div id="map" style="height: 400px; width: 100%;"></div>
+                <input type="hidden" name="latitude" id="latitude">
+                <input type="hidden" name="longitude" id="longitude">
+                <p>Selected Location: <span id="location-text">Click on the map to select a location</span></p>
+            </div>
+            <div class="special-request-section">
+                <h3>Special Requests</h3>
+                <textarea name="special_requests" id="special-requests" rows="4" placeholder="Enter any special requests here..."></textarea>
+            </div>
+            <button type="submit">Proceed to Payment</button>
         </form>
     </section>
 </main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     // Load saved checkboxes from localStorage
     document.addEventListener('DOMContentLoaded', function() {
@@ -91,6 +105,35 @@
                 }
             });
         });
+
+        // Initialize Leaflet map
+        const map = L.map('map').setView([37.7749, -122.4194], 13); // Default center (San Francisco)
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        let marker = null;
+
+        // Add click event to place marker and save coordinates
+        map.on('click', function(e) {
+            const lat = e.latlng.lat;
+            const lng = e.latlng.lng;
+
+            // Update or create marker
+            if (marker) {
+                marker.setLatLng(e.latlng);
+            } else {
+                marker = L.marker(e.latlng).addTo(map);
+            }
+
+            // Update hidden inputs and location text
+            document.getElementById('latitude').value = lat;
+            document.getElementById('longitude').value = lng;
+            document.getElementById('location-text').textContent = `Latitude: ${lat.toFixed(6)}, Longitude: ${lng.toFixed(6)}`;
+        });
     });
 </script>
 </body>
+</html>
