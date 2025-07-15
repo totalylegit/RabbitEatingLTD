@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <title>Volunteer</title>
+    <link rel="stylesheet" href="../static/styles.css">  
 
+    
 <main>
     <div class="top-bar">
         <div class="top-bar-left">
             <div class="brand-box">Carrot Cafe By RabbitEatingLTD</div>
         </div>
-        <a href="../templates/index.html" class="home-btn">Home</a>
+        <a href="../index.html" class="home-btn">Home</a>
     </div>
     <main>
-        <section class="donate-section">
-            <h2>Donate to Support Us</h2>
-            <p>Your contributions help us serve the community better!</p>
-            <form method="POST" action="/donate">
+        <section class="volunteer-section">
+            <h2>Volunteer with Us</h2>
+            <p>Join our community efforts and make a difference!</p>
+            <form method="POST" action="/volunteer">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 
-                <label for="amount">Donation Amount:</label>
-                <input type="number" id="amount" name="amount" required min="1">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
                 
-                <button type="submit" class="action-btn">Donate</button>
+                <button type="submit" class="action-btn">Submit</button>
             </form>
         </section>
 </main>
