@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="Sticker.png" type="image/png">
+</head>
+<body class="body">
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <img src="Banner.png" alt="Carrot Cafe Logo" class="logo">
+            <div class="dropdown">
+                <button class="dropbtn" aria-label="Open menu">
+                    Menu
+                </button>
+                <div class="dropdown-content">
+                    <a href="#menu">Menu</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="brand-box">Carrot Cafe By RabbitEatingLTD</div>
+        </div>
+        <a href="/templates/index.html" class="home-btn">Home</a>
+    </div>
+</body>
+
+<main>
+    <section class="confirmation">
+        <h2>Payment Confirmation</h2>
+        <p>Thank you for your order! Your payment has been successfully processed.</p>
+        <p>Please kick Return button to submit another order or visit menu</p>
+        <form action="/templates/homepage.html" method="GET">
+            <button type="submit" class="action-btn">Return to Menu</button>
+</main>
